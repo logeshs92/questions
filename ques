@@ -28,6 +28,15 @@ AWS ELB connection draining prevents breaking open network connections while tak
 Centilytics provides an insight which warns the user whenever a load balancer with disabled connection draining is detected.
 Enabling this feature will allow better management of the resources behind the Elastic Load Balancer, such as replacing backend instances without impacting the user experience. For example, taking an instance out of service and replacing it with a fresh EC2 instance that contains updated software, while avoid breaking open network connections.
 
+**5. Application Deployment types**
+  Blue/Green deployment
+  Rolling deployment
+  Canary deployment
+  Recreate deployment
+  A/B deployment
+  
+https://dev.to/mostlyjason/intro-to-deployment-strategies-blue-green-canary-and-more-3a3
+https://medium.com/@cgrant/deployment-strategies-release-best-practices-6e557c3f39b4
 
 
 
