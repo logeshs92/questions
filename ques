@@ -1,0 +1,40 @@
+
+**1. Accessing s3 from ec2 using aws cli without access and secret key?**
+Using IAM roles we can achiev this
+Create IAM role for ec2 with policy to access s3 
+By doing above we don'nt need to configure access and secret key
+
+What is IAM role and its used for:
+A role describes the permissions to access resources.
+By doing this, the applications or services assume the role (permissions) at run time. This means that AWS is providing to the application or the user temporary security credentials that can be used whenever they need access to those resources.
+
+IAM roles are designed so that our applications can securely make API requests from our instances, without requiring us to manage the security credentials that the applications use. Instead of creating and distributing our AWS credentials, we delegate permission to make API requests using IAM roles as follows:
+
+
+RDS Multi AZ vs Read Replica:
+Multi-AZ deployment is a AWS managed offering where you get hot-standby replica of your RDS in a different Availability Zone which will substitute automatically your master/primary database in case of its maintenance, failure or AZ failure
+
+One very important thing to note here is we can’t access the other instance (standby instanace) prior to the failover. Only a failure of primary database will make the standby available for use. So basically it maintains database availability against failure.
+
+
+In case we need to offload the primary database we need to use Read-Replica. This is done manually by right clicking on DB instance. Once a Read-Replica is created, after a few minutes (or more depending on the storage size) it will be ready to accept connections from authorized users depending on Security Groups.
+
+Once created we can use this new instance mainly for performance and backups:
+
+By diverting read queries (select statement) to replicas, keeping in mind the replica lag, we can easily scale out our application.
+
+We can also use the Read Replica as a failover instance. In case of failure you need to manually make the read Replica to a primary.
+
+To decrease the risk of a single AWS Availability Zone failure we should deploy the Read Replica in a different AZ respect to the master instance.
+
+
+Main difference here is Multi-AZ is purely backup and recovery option. Its totally automated and managed by AWS. There is no lag in this case. While read replica is manual and it can be used for performance as well. There is slight lag in here.
+
+
+
+
+
+
+
+
+
