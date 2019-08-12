@@ -26,6 +26,7 @@ Main difference here is Multi-AZ is purely backup and recovery option. Its total
 Enabling connection draining feature in a load balancer makes sure that any back-end instances you have deregistered will complete requests in progress before the deregistration process starts. Also, if a back-end instance fails to keep up with the recommended health checks, then the load balancer does not send any new requests to the unhealthy instance. Although it will still allow existing requests to complete.
 AWS ELB connection draining prevents breaking open network connections while taking an instance out of service, updating its software, or replacing it with a fresh instance that contains updated software. Connection draining avoids the situation of broken connection being displayed as a half-drawn web page, an aborted file download, or a failed web service call. It is recommended that connection draining should be enabled for your Elastic Load Balancers to ensure fault tolerance in your cloud infra.
 Centilytics provides an insight which warns the user whenever a load balancer with disabled connection draining is detected.
+Enabling this feature will allow better management of the resources behind the Elastic Load Balancer, such as replacing backend instances without impacting the user experience. For example, taking an instance out of service and replacing it with a fresh EC2 instance that contains updated software, while avoid breaking open network connections.
 
 
 
