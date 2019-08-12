@@ -4,14 +4,14 @@ Using IAM roles we can achiev this
 Create IAM role for ec2 with policy to access s3 
 By doing above we don'nt need to configure access and secret key
 
-What is IAM role and its used for:
+*2. What is IAM role and its used for?*
 A role describes the permissions to access resources.
 By doing this, the applications or services assume the role (permissions) at run time. This means that AWS is providing to the application or the user temporary security credentials that can be used whenever they need access to those resources.
 
 IAM roles are designed so that our applications can securely make API requests from our instances, without requiring us to manage the security credentials that the applications use. Instead of creating and distributing our AWS credentials, we delegate permission to make API requests using IAM roles as follows:
 
 
-RDS Multi AZ vs Read Replica:
+*3. RDS Multi AZ vs Read Replica:*
 Multi-AZ deployment is a AWS managed offering where you get hot-standby replica of your RDS in a different Availability Zone which will substitute automatically your master/primary database in case of its maintenance, failure or AZ failure
 
 One very important thing to note here is we can’t access the other instance (standby instanace) prior to the failover. Only a failure of primary database will make the standby available for use. So basically it maintains database availability against failure.
